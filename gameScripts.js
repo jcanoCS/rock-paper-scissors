@@ -64,7 +64,7 @@ function game() {
                 // no points incremented in a draw
         }
         // decrement remaining rounds
-        remainingRounds--; 
+        //remainingRounds--; 
     }
     
     if (playerPoints > computerPoints){
