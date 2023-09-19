@@ -1,3 +1,24 @@
+function alertButtonWorks(){
+    alert("Button does indeed work!");
+}
+
+let btns = document.querySelectorAll('#btn');
+
+for (let i = 0; i < btns.length; i++) {
+    btns[i].addEventListener('click', function (e){
+        console.log("button clicked!");
+        console.log(e);
+    });
+}
+
+
+
+
+
+
+
+
+
 const WIN = 1;
 const DRAW = 0;
 const LOSE = -1;
@@ -21,7 +42,7 @@ function promptPlayerChoice() {
 
     while(true){
         playerSelection = prompt("ROCK, PAPER, OR SCISSORS?");
-        playerSelection = playerSelection.toUpperCase();
+        //playerSelection = playerSelection.toUpperCase();
         if (playerSelection !== null && CHOICES.includes(playerSelection)) {
             break;
         }

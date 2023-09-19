@@ -1,0 +1,21 @@
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: wheat;
+}
+
+/* Top portion of page */
+div.top {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Rock, Paper, Scissors buttons */
+button.options {
+    background-color: gold;
+    color: black;
+    width: 100px;
+    height: 30px;
+}
