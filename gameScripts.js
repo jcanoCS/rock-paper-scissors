@@ -6,8 +6,10 @@ let btns = document.querySelectorAll('#btn');
 
 for (let i = 0; i < btns.length; i++) {
     btns[i].addEventListener('click', function (e){
+        const element = e.target;
+        let weapon = element.value;
         console.log("button clicked!");
-        console.log(e);
+        console.log(weapon);
     });
 }
 
