@@ -1,25 +1,5 @@
-function alertButtonWorks(){
-    alert("Button does indeed work!");
-}
-
-let btns = document.querySelectorAll('#btn');
-
-for (let i = 0; i < btns.length; i++) {
-    btns[i].addEventListener('click', function (e){
-        const element = e.target;
-        let weapon = element.value;
-        console.log("button clicked!");
-        console.log(weapon);
-    });
-}
-
-
-
-
-
-
-
-
+/************  GAME VARIABLES AND FUNCTIONS ***********************************/
+/**************************************************************************** */
 
 const WIN = 1;
 const DRAW = 0;
@@ -39,6 +19,10 @@ function generateComputerChoice() {
     return Math.floor(Math.random() * (3) + 0);  
 }
 
+function convertPlayerSelectionToIndex(playerSelection) {
+    return CHOICES.indexOf(playerSelection);
+}
+
 function promptPlayerChoice() {
     let playerSelection = null;
 
@@ -53,9 +37,11 @@ function promptPlayerChoice() {
 }
 
 
-function playRound(playerSelection, computerSelection) {
-    console.log("You: " + CHOICES[playerSelection] + "  ||  AI: " + CHOICES[computerSelection]);
-    return WIN_LOSE_CHART[playerSelection][computerSelection];
+function playRound(playerSelection, computerIndex) {
+    let playerIndex = convertPlayerSelectionToIndex(playerSelection);
+    console.log("You: " + CHOICES[playerIndex] + "  ||  AI: " + CHOICES[computerIndex]);
+    console.log("Result: " + WIN_LOSE_CHART[playerIndex][computerIndex]);
+    return WIN_LOSE_CHART[playerIndex][computerIndex];
 }
 
 function game() {
@@ -100,4 +86,22 @@ function game() {
 
     // display the final results
     window.alert(message + "\nYou: " + playerPoints + " || AI: " + computerPoints);
+}
+
+/**************************************************************************** */
+//                      EVENT FUNCTIONS
+/**************************************************************************** */
+
+let btns = document.querySelectorAll('#btn');
+
+for (let i = 0; i < btns.length; i++) {
+    btns[i].addEventListener('click', function (e){
+
+        let playerClickedChoice = e.target.value;
+        console.log('Player Chose: ' + playerClickedChoice);
+        let pointsWon = playRound(playerClickedChoice, generateComputerChoice());
+        console.log("Points won: " + pointsWon);
+
+
+    });
 }
