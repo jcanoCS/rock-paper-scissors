@@ -20,8 +20,12 @@ div.bottom {
     margin-top: 50px;
 }
 
-.bottom > div {
+.bottom .title {
     text-decoration: underline;
+}
+
+.bottom .score {
+    text-align: center;
 }
 
 /* Rock, Paper, Scissors buttons */
