@@ -52,10 +52,15 @@ function processResults(result) {
     if(aiPoints >= 5) {
         document.getElementById("playerScore").innerHTML = "LOSER!";
         document.getElementById("aiScore").innerHTML = "WINNER!";
-    }
-    
+    }  
 }
 
+function resetGame() {
+    playerPoints = 0;
+    aiPoints = 0;
+    document.getElementById("playerScore").innerHTML = playerPoints;
+    document.getElementById("aiScore").innerHTML = aiPoints;
+}
 
 
 /**************************************************************************** */
@@ -63,6 +68,7 @@ function processResults(result) {
 /**************************************************************************** */
 
 let btns = document.querySelectorAll('#choice-btn');
+let rst = document.querySelector('#reset-btn');
 
 for (let i = 0; i < btns.length; i++) {
     btns[i].addEventListener('click', function (e){
@@ -75,6 +81,10 @@ for (let i = 0; i < btns.length; i++) {
 
     });
 }
+
+rst.addEventListener('click', function (e){
+    resetGame();
+});
 
 
 
