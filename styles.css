@@ -34,6 +34,7 @@ div.bottom {
 
 .bottom .score {
     text-align: center;
+    color: red;
 }
 
 /* Rock, Paper, Scissors buttons */
