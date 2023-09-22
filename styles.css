@@ -4,12 +4,24 @@ body {
     background-color: wheat;
 }
 
-/* Top portion of page */
+/* Top portion of page for option buttons */
 div.top {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 20px;
+}
+
+/* Bottom portion of page for displaying scores */
+div.bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.bottom > div {
+    text-decoration: underline;
 }
 
 /* Rock, Paper, Scissors buttons */
