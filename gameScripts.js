@@ -1,7 +1,7 @@
 /************  GAME VARIABLES AND FUNCTIONS ***********************************/
 /**************************************************************************** */
-let thePlayerPointsGlobal = 5;
-let theAiPointsGlobal = 10;
+let playerPoints = 0;
+let aiPoints = 0;
 const WIN = 1;
 const DRAW = 0;
 const LOSE = -1;
@@ -32,6 +32,30 @@ function playRound(playerSelection, computerIndex) {
     return WIN_LOSE_CHART[playerIndex][computerIndex];
 }
 
+function processResults(result) {
+    switch(result) {
+        case WIN:
+            document.getElementById("playerScore").innerHTML = ++playerPoints;
+        case DRAW:
+            break;
+        case LOSE:
+            document.getElementById("aiScore").innerHTML = ++aiPoints;
+            break;
+        default:
+            alert("Invalid result!");
+    }
+
+    if(playerPoints >= 5) {
+        document.getElementById("playerScore").innerHTML = "WINNER!";
+        document.getElementById("aiScore").innerHTML = "LOSER!";
+    }
+    if(aiPoints >= 5) {
+        document.getElementById("playerScore").innerHTML = "LOSER!";
+        document.getElementById("aiScore").innerHTML = "WINNER!";
+    }
+    
+}
+
 
 
 /**************************************************************************** */
@@ -45,9 +69,9 @@ for (let i = 0; i < btns.length; i++) {
 
         let playerClickedChoice = e.target.value;
         console.log('Player Chose: ' + playerClickedChoice);
-        let pointsWon = playRound(playerClickedChoice, generateComputerChoice());
-        console.log("Points won: " + pointsWon);
-
+        let result = playRound(playerClickedChoice, generateComputerChoice());
+        // Changing score based on result
+        processResults(result);
 
     });
 }
@@ -56,5 +80,3 @@ for (let i = 0; i < btns.length; i++) {
 
 
 
-// Testing DOM Changing methods
-document.getElementById("aiPoints").innerHTML = theAiPointsGlobal;
