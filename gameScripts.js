@@ -48,10 +48,12 @@ function processResults(result) {
     if(playerPoints >= 5) {
         document.getElementById("playerScore").innerHTML = "WINNER!";
         document.getElementById("aiScore").innerHTML = "LOSER!";
+        disableButtons();
     }
     if(aiPoints >= 5) {
         document.getElementById("playerScore").innerHTML = "LOSER!";
         document.getElementById("aiScore").innerHTML = "WINNER!";
+        disableButtons();
     }  
 }
 
@@ -60,6 +62,19 @@ function resetGame() {
     aiPoints = 0;
     document.getElementById("playerScore").innerHTML = playerPoints;
     document.getElementById("aiScore").innerHTML = aiPoints;
+    enableButtons();
+}
+
+function disableButtons() {
+    for (let i = 0; i < btns.length; i++) {
+        btns[i].disabled = true;
+    }
+}
+
+function enableButtons() {
+    for (let i = 0; i < btns.length; i++) {
+        btns[i].disabled = false;
+    }
 }
 
 
