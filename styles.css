@@ -8,8 +8,16 @@ body {
 div.top {
     display: flex;
     flex-direction: row;
+    margin-top: 20px;
     justify-content: center;
     gap: 20px;
+}
+
+/* Middle portion of page to reset game */
+div.middle {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
 }
 
 /* Bottom portion of page for displaying scores */

@@ -62,7 +62,7 @@ function processResults(result) {
 //                      EVENT FUNCTIONS
 /**************************************************************************** */
 
-let btns = document.querySelectorAll('#btn');
+let btns = document.querySelectorAll('#choice-btn');
 
 for (let i = 0; i < btns.length; i++) {
     btns[i].addEventListener('click', function (e){
